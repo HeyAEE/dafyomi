@@ -5,6 +5,7 @@ import feedparser
 import os
 from dotenv import load_dotenv
 from datetime import datetime
+import ravgem
 
 # --- Configuration ---
 # Spotify API credentials (stored in environment .env file)
@@ -202,12 +203,14 @@ def run_pipeline():
     print("\n--- Pipeline Data Summary ---")
     print(f"Sefaria Daf Yomi Fetched: {'Yes' if sefaria_text_data else 'No'}")
     print(f"Spotify Podcasts Fetched: {len(spotify_podcast_episodes)}")
+    text = ravgem.ravgem_chat(today_daf_ref)
+    print(text)
     # print(f"Blog Posts Fetched: {len(blog_posts)}")
 
     # You can now process or store 'pipeline_data' as needed.
     # For demonstration, we'll print a snippet of the data.
-    print("\n--- Raw Fetched Data (Snippet) ---")
-    print(json.dumps(pipeline_data, indent=2, ensure_ascii=False)[:1000] + "...") # Print first 1000 chars
+    # print("\n--- Raw Fetched Data (Snippet) ---")
+    # print(json.dumps(pipeline_data, indent=2, ensure_ascii=False)[:1000] + "...") # Print first 1000 chars
 
 # Run the pipeline
 if __name__ == "__main__":
