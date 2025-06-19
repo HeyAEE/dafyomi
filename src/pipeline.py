@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 import ravgem
+import ravgpt
 
 # --- Configuration ---
 # Spotify API credentials (stored in environment .env file)
